@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baizhi.dao.MenuDao">
+    <resultMap id="MenuMapper" type="Menu">
+        <result property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="iconCls" column="icon_cls"/>
+        <result property="partentId" column="partent_id"/>
+        <result property="jspUrl" column="jsp_url"/>
+        <collection property="mlist" ofType="Menu">
+            <result property="id" column="did"/>
+            <result property="title" column="dtitle"/>
+            <result property="iconCls" column="dicon_cls"/>
+            <result property="partentId" column="dpartent_id"/>
+            <result property="jspUrl" column="djsp_url"/>
+        </collection>
+    </resultMap>
+
+<select id="queryAll" resultMap="MenuMapper">
+    select t1.*,
+           t2.id       did,
+           t2.title    dtitle,
+           t2.icon_cls dicon_cls,
+           t2.jsp_url  djsp_url
+    from cmfz_menu t1
+             left join cmfz_menu t2
+                       on t1.id = t2.partent_id
+    where t1.partent_id is null
+</select>
+
+
+</mapper>

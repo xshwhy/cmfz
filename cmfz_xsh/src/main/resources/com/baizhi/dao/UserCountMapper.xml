@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baizhi.dao.UserCountDao">
+    <resultMap id="UserMapper" type="UserCount">
+        <result column="province" property="name"/>
+       <result column="count" property="value"/>
+    </resultMap>
+
+    <select id="selectByMale" resultMap="UserMapper">
+        select count(*) count,province,sex from cmfz_user where sex=0 group by province
+    </select>
+
+    <select id="selectByFeMale" resultMap="UserMapper">
+        select count(*) count,province,sex from cmfz_user where sex=1 group by province
+    </select>
+
+    <select id="selectByDate" resultType="Integer" >
+        select count(*) count from cmfz_user where DATEDIFF(NOW(),create_date)&lt;#{time}
+    </select>
+
+</mapper>

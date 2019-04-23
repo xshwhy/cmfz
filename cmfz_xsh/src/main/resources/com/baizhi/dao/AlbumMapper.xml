@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baizhi.dao.AlbumDao">
+    <resultMap id="AlbumMapper" type="Album">
+        <result column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="amount" property="amount"/>
+        <result column="img_path" property="imgPath"/>
+        <result column="score" property="score"/>
+        <result column="author" property="author"/>
+        <result column="boardcast" property="boardcast"/>
+        <result column="publish_date" property="publishDate"/>
+        <result column="brief" property="brief"/>
+        <collection property="children" ofType="Chapter">
+            <result column="aid" property="id"/>
+            <result column="atitle" property="title"/>
+            <result column="size" property="size"/>
+            <result column="duration" property="duration"/>
+            <result column="publish_date" property="publishDate"/>
+            <result column="album_id" property="albumId"/>
+            <result column="music_path" property="musicPath"/>
+        </collection>
+    </resultMap>
+    <select id="selectAllChapter" resultMap="AlbumMapper">
+        select t1.*,t2.id aid,t2.title atitle,t2.album_id,t2.size,t2.duration,t2.music_path  from  cmfz_album t1
+        left join cmfz_chapter t2
+        on  t1.id=t2.album_id
+    </select>
+
+
+    <insert id="queryInsert">
+        insert into cmfz_album values (uuid(),#{title},#{amount},#{imgPath},#{score},#{author},#{boardcast},now(),#{brief})
+    </insert>
+
+
+</mapper>
