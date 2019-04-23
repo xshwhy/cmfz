@@ -143,6 +143,19 @@
         </dependency>
 
 
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.10</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+
+
     </dependencies>
 
 
@@ -150,9 +163,7 @@
         <repository>
             <id>goeasy</id>
             <name>goeasy</name>
-            <url>
-                http://maven.goeasy.io/content/repositories/releases/
-            </url>
+            <url>http://maven.goeasy.io/content/repositories/releases/</url>
         </repository>
     </repositories>
 

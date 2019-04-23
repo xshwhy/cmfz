@@ -5,6 +5,7 @@ import com.baizhi.dao.MenuDao;
 import com.baizhi.entity.Album;
 import com.baizhi.service.BannerService;
 import io.goeasy.GoEasy;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,24 @@ public class CmfzXshApplicationTests {
         GoEasy goEasy = new GoEasy( "http://rest-hangzhou.goeasy.io", "BC-1f3b41fa7a3647429e5657d9cfb2fd2b");
 
                 goEasy.publish("xsh","Hello, GoEasy!");
+
+
+    }
+
+
+
+    @Test
+    public void testMD5() {
+
+        String uuid = UUID.randomUUID().toString().replace("-", "").substring(3, 6);
+
+        String d1=DigestUtils.md5Hex("123456");
+
+        String s1 = d1+uuid;
+
+        String s = DigestUtils.md5Hex(s1);
+
+        System.out.println(s);
 
 
     }
