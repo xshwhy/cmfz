@@ -23,4 +23,5 @@ public class Master {
     private Integer status;
     @Column(name = "head_img")
     private String headImg;
+
 }

@@ -11,13 +11,14 @@ import tk.mybatis.mapper.annotation.KeySql;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "cmfz_article")
-public class Article {
+public class Article implements Serializable {
 
     @Id
     @KeySql(useGeneratedKeys = true)
@@ -35,7 +36,7 @@ public class Article {
     private Date publishDate;
 
     private Integer status;
-    @Column(name = "master_id")
+
     private Integer masterId;
 
 

@@ -1,4 +1,10 @@
 <%@page contentType="text/html; UTF-8" pageEncoding="UTF-8" isELIgnored="false" language="java" %>
+
+<script type="text/javascript" src="../js/distpicker.data.js"></script>
+<script type="text/javascript" src="../js/distpicker.js"></script>
+<script type="text/javascript" src="../js/main.js"></script>
+
+
 <script>
     $(function () {
 
@@ -7,7 +13,7 @@
             text: '添加',
             handler: function () {
                 //alert('编辑按钮')
-                $('#dd_banner').dialog('open');
+                $('#dd_user').dialog('open');
 
             }
         }, '-', {
@@ -22,7 +28,7 @@
             text: '删除',
             handler: function () {
                 //alert('帮助按钮')
-                $('#dg_banner').edatagrid('destroyRow');
+                $('#dg_user').edatagrid('destroyRow');
                 //$('#dg_banner').edatagrid('load');
             }
         }, '-', {
@@ -30,12 +36,12 @@
             text: '保存',
             handler: function () {
                 //alert('帮助按钮')
-                $('#dg_banner').edatagrid('saveRow');
+                $('#dg_user').edatagrid('saveRow');
 
             }
         }];
 
-        $('#dg_banner').edatagrid({
+        $('#dg_user').edatagrid({
             method: 'get',
             url: '${pageContext.request.contextPath}/user/queryAll',
             saveUrl: '${pageContext.request.contextPath}/user/updateUser',
@@ -90,10 +96,10 @@
                 data = JSON.parse(data);
                 if(data.isInsert){
                     //关闭修改对话框
-                    $("#dd_banner").dialog("close");
+                    $("#dd_user").dialog("close");
 
                     //刷新datagrid
-                    //$("#dg_banner").datagrid("load");
+                    $("#dg_user").datagrid("reload");
                 }else{
                     alert("添加失败，请确认")
                 }
@@ -103,8 +109,8 @@
     }
 
 </script>
-<table id="dg_banner"></table>
-<div id="dd_banner" class="easyui-dialog" title="My Dialog" style="width:400px;height:200px;"
+<table id="dg_user"></table>
+<div id="dd_user" class="easyui-dialog" title="My Dialog" style="width:400px;height:200px;"
      data-options="iconCls:'icon-save',resizable:true,modal:true,closed:true,
             buttons:[{
 				text:'保存',
@@ -130,13 +136,17 @@
             <input id="sex1" class="easyui-validatebox" type="radio" name="sex"  value="0" data-options="required:true"/>男
             <input id="sex2" class="easyui-validatebox" type="radio" name="sex"  value="1" data-options="required:true"/>女
         </div>
-        <div>
-            <label for="province">省份:</label>
-            <input id="province" class="easyui-validatebox" type="text" name="province" data-options="required:true"/>
+        <div data-toggle="distpicker">
+        <div class="form-group">
+            <label class="sr-only" for="province1">省份:</label>
+            <%--<input id="province" class="easyui-validatebox" type="text" name="province" data-options="required:true"/>--%>
+            <select class="form-control" id="province1"   name="province"></select>
         </div>
-        <div>
-            <label for="city">城市:</label>
-            <input id="city" class="easyui-validatebox" type="text" name="city" data-options="required:true"/>
+        <div class="form-group">
+            <label class="sr-only" for="city1">城市:</label>
+            <%--<input id="city" class="easyui-validatebox" type="text" name="city" data-options="required:true"/>--%>
+            <select id="city1" class="form-control"  name="city"/>
+        </div>
         </div>
         <div>
             <label for="sign">签名:</label>

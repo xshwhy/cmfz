@@ -20,6 +20,22 @@ public class MasterServiceImpl implements MasterService {
 
     @Override
     public List<Master> SelectAllMaster() {
+
         return masterDao.selectAll();
+    }
+
+    @Override
+    public void insertMaster(Master master) {
+        masterDao.insertSelective(master);
+    }
+
+    @Override
+    public void deleteMaster(int id) {
+        masterDao.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public void updateMaster(Master master) {
+        masterDao.updateByPrimaryKeySelective(master);
     }
 }

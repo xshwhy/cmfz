@@ -9,17 +9,18 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Service
 @Transactional
+@Service("articleService")
 public class ArticleServiceImpl implements ArticleService {
 
-    @Autowired
-    ArticleDao articleDao;
+   @Autowired
+   ArticleDao articleDao;
 
 
     @Override
     public List<Article> selectAllArticle() {
         return articleDao.selectAll();
+
     }
 
     @Override

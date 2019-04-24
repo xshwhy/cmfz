@@ -20,7 +20,7 @@
             text: '添加专辑',
             handler: function () {
                 alert('帮助按钮')
-                $('#dd_banner').dialog('open');
+                $('#dd_album').dialog('open');
             }
         }, '-', {
             iconCls: 'icon-delete',
@@ -107,7 +107,7 @@
                 data = JSON.parse(data);
                 if(data.isInsert){
                     //关闭修改对话框
-                    $("#dd_banner").dialog("close");
+                    $("#dd_album").dialog("close");
 
                     //刷新datagrid
                     //$("#dg_banner").datagrid("load");
@@ -146,7 +146,7 @@
 
 </script>
 <table id="tt_album" style="width:600px;height:400px"></table>
-<div id="dd_banner" class="easyui-dialog" title="My Dialog" style="width:400px;height:200px;"
+<div id="dd_album" class="easyui-dialog" title="My Dialog" style="width:400px;height:200px;"
      data-options="iconCls:'icon-save',resizable:true,modal:true,closed:true,
             buttons:[{
 				text:'保存',

@@ -21,13 +21,15 @@ public class ArticleController {
 
 
     @RequestMapping("selectAllArticle")
-    public List<Article>selectAllArticle(){
-       return articleService.selectAllArticle();
+    public List<Article> selectAllArticle(){
+        return articleService.selectAllArticle();
     }
 
 
     @RequestMapping("insertArticle")
-    public Map insertUser(Article article, MultipartFile file, HttpSession session){
+    public Map insertArticle(Article article, MultipartFile file, HttpSession session){
+
+
         //获取文件上传路径
         String realPath = session.getServletContext().getRealPath("/");
         String dir=realPath+"article";
@@ -59,11 +61,14 @@ public class ArticleController {
 
         Map map=new HashMap();
         try {
+
+
             articleService.insertArticle(article);
             map.put("isInsert",true);
 
         } catch (Exception e) {
             e.printStackTrace();
+
             map.put("isInsert",false);
         }
         return map;

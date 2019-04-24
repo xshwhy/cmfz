@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ArticleService {
 
-    List<Article>selectAllArticle();
+    List<Article> selectAllArticle();
 
     void insertArticle(Article article);
 

@@ -1,16 +1,10 @@
 package com.baizhi;
 
-import com.aliyuncs.DefaultAcsClient;
-import com.aliyuncs.IAcsClient;
-import com.aliyuncs.dysmsapi.model.v20170525.SendSmsRequest;
-import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
-import com.aliyuncs.exceptions.ClientException;
-import com.aliyuncs.http.MethodType;
-import com.aliyuncs.profile.DefaultProfile;
-import com.aliyuncs.profile.IClientProfile;
 import com.baizhi.dao.AlbumDao;
+import com.baizhi.dao.ArticleDao;
 import com.baizhi.dao.MenuDao;
 import com.baizhi.entity.Album;
+import com.baizhi.service.ArticleService;
 import com.baizhi.service.BannerService;
 import io.goeasy.GoEasy;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -35,6 +29,11 @@ public class CmfzXshApplicationTests {
 
     @Autowired
     AlbumDao albumDao;
+    @Autowired
+    ArticleDao articleDao;
+
+    @Autowired
+    ArticleService articleService;
 
 
     @Test
@@ -52,9 +51,9 @@ public class CmfzXshApplicationTests {
 
     @Test
     public void test22() {
-        GoEasy goEasy = new GoEasy( "http://rest-hangzhou.goeasy.io", "BC-1f3b41fa7a3647429e5657d9cfb2fd2b");
+        GoEasy goEasy = new GoEasy("http://rest-hangzhou.goeasy.io", "BC-1f3b41fa7a3647429e5657d9cfb2fd2b");
 
-                goEasy.publish("xsh","Hello, GoEasy!");
+        goEasy.publish("xsh", "Hello, GoEasy!");
 
 
     }
@@ -75,6 +74,7 @@ public class CmfzXshApplicationTests {
 
 
     }
+/*
 
     @Test
     public void testMessage() throws ClientException {
@@ -120,12 +120,13 @@ public class CmfzXshApplicationTests {
 //请求成功
         }
     }
+*/
 
 
 
 
 
 
-    }
+}
 
 

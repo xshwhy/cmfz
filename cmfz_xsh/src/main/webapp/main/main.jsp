@@ -16,6 +16,10 @@
 <script  src="../js/echarts.min.js" type="text/javascript" charset="utf-8"></script>
 <script  src="../js/china.js" type="text/javascript" charset="utf-8" ></script>
 <script type="text/javascript" src="http://cdn-hangzhou.goeasy.io/goeasy.js"></script>
+    <script type="text/javascript" src="../js/distpicker.data.js"></script>
+    <script type="text/javascript" src="../js/distpicker.js"></script>
+
+    <script type="text/javascript" src="../js/main.js"></script>
 <script type="text/javascript">
 
    $(function () {
