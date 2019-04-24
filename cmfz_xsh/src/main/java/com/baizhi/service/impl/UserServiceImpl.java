@@ -77,5 +77,20 @@ public class UserServiceImpl implements UserService {
         return map;
     }
 
+    @Override
+    public User login(String name,String password) {
+        return  userDao.selectByName(name,password);
+    }
+
+    @Override
+    public User selectOne(int id) {
+        return userDao.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public List<User> selectAllUser() {
+        return userDao.selectAll();
+    }
+
 
 }

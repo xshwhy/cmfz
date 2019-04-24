@@ -24,6 +24,12 @@
         insert into cmfz_user values (0,#{name},#{dharma},#{sex},#{province},#{city},#{sign},0,#{phone},#{password},null,#{headImg},null,now())
     </insert>
 
+    <select id="selectByName" resultMap="UserMapper">
+        select * from cmfz_user where name=#{name} and password=#{password}
+    </select>
+
+
+
 
 
 

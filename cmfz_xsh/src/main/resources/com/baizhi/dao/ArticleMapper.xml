@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baizhi.dao.ArticleDao">
+    <resultMap id="ArticleMapper" type="Article">
+        <result column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="img_path" property="imgPath"/>
+        <result column="content" property="content"/>
+        <result column="publish_date" property="publishDate"/>
+        <result column="status" property="status"/>
+        <result column="master_id" property="masterId"/>
+    </resultMap>
+
+
+    <select id="selectMyMaster" resultMap="ArticleMapper">
+
+      select * from cmfz_article where master_id=#{aid}
+
+    </select>
+
+
+    <select id="selectOtherMaster" resultMap="ArticleMapper">
+    select * from cmfz_article where master_id!=#{aid}
+
+    </select>
+</mapper>

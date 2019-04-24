@@ -2,6 +2,7 @@ package com.baizhi.service;
 
 import com.baizhi.entity.Banner;
 
+import java.util.List;
 import java.util.Map;
 
 public interface BannerService {
@@ -11,4 +12,6 @@ public interface BannerService {
     void queryUpdate(Banner banner);
 
     void queryDelete(int id);
+
+    List<Banner> selectAllB();
 }

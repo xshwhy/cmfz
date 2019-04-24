@@ -2,6 +2,7 @@ package com.baizhi.service;
 
 import com.baizhi.entity.User;
 
+import java.util.List;
 import java.util.Map;
 
 public interface UserService {
@@ -14,10 +15,15 @@ public interface UserService {
     void updateUser(User user);
 
 
-
-
     Map selectBySex();
 
-      Map selectByDate();
+    Map selectByDate();
+
+    User login(String name,String password);
+
+    User selectOne(int id);
+
+    List<User>selectAllUser();
+
 
 }

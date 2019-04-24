@@ -11,4 +11,6 @@ public interface AlbumService {
     void queryInsert(Album album);
 
     List<Album>queryAll();
+
+    Album selectOne(int id);
 }

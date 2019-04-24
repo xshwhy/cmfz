@@ -37,4 +37,16 @@ public class ArticleServiceImpl implements ArticleService {
     public void updateArticle(Article article) {
         articleDao.updateByPrimaryKeySelective(article);
     }
+
+    @Override
+    public List<Article> selectMyMaster(int aid) {
+        return articleDao.selectMyMaster(aid);
+    }
+
+    @Override
+    public List<Article> selectOtherMaster(int aid) {
+        return articleDao.selectOtherMaster(aid);
+    }
+
+
 }

@@ -31,4 +31,9 @@ public class AlbumServiceImpl implements AlbumService {
     public List<Album> queryAll() {
         return albumDao.selectAll();
     }
+
+    @Override
+    public Album selectOne(int id) {
+        return albumDao.selectByPrimaryKey(id);
+    }
 }

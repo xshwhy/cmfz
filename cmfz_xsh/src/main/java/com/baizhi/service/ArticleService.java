@@ -13,4 +13,8 @@ public interface ArticleService {
     void deleteArticle(int id);
 
     void updateArticle(Article article);
+
+    List<Article>selectMyMaster(int aid);
+
+    List<Article>selectOtherMaster(int aid);
 }

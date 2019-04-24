@@ -3,6 +3,7 @@ package com.baizhi;
 import com.baizhi.dao.AlbumDao;
 import com.baizhi.dao.ArticleDao;
 import com.baizhi.dao.MenuDao;
+import com.baizhi.dao.UserDao;
 import com.baizhi.entity.Album;
 import com.baizhi.service.ArticleService;
 import com.baizhi.service.BannerService;
@@ -34,6 +35,9 @@ public class CmfzXshApplicationTests {
 
     @Autowired
     ArticleService articleService;
+
+    @Autowired
+    UserDao userDao;
 
 
     @Test
@@ -124,6 +128,15 @@ public class CmfzXshApplicationTests {
 
 
 
+//    @Test
+//    public void login(){
+//        User user = new User();
+//        user.setName("大龙");
+//        user.setPassword("111111");
+//        User user1 = userDao.selectByName(user);
+//        System.out.println(user1);
+//
+//    }
 
 
 
